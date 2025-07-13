@@ -1,6 +1,6 @@
 # Slash Flow: Simple Context Engineering
 
-Many Agentic Coding context management solutions like Cline's Memory Bank are impressively robust, but can be complex,  hard to get started with, and try to be overly magical.
+Many Agentic Coding context management solutions like Cline's Memory Bank are impressively robust, but can be hard to understand if new to Agentic coding, include a large number of workflows to understand, and at times try to be overly magical.
 
 Slash Flow is a stupid simple context management solution that gets and keeps you in a flow state without having to stress about context windows or project documentation.
 
