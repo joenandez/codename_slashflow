@@ -12,13 +12,13 @@ The workflow and commands are simple
 
 1. `new_task` - start a new task, document the task, create an initial well researched implementation plan
 
-2. `create_tasks` - creates a task list with detailed sub-tasks based on your implementation plan, including a sub-agent parralelization strategy
+2. `create_subtasks` - creates a task list with detailed sub-tasks based on your implementation plan, including a sub-agent parralelization strategy
 
 3. `session_handoff` - document progress/status to start a new thread with fresh context
 
 4. `resume_task` - find active_tasks, read all documentation and session_log, and continue where you left off
 
-5. `create_tasks` - generate detailed task lists with parallel sub-agent execution strategies
+5. `create_subtasks` - generate detailed task lists with parallel sub-agent execution strategies
 
 6. `code_review` - 3 stages of code_review conducted by an independent sub-agent to catch issues/gaps
 
@@ -57,7 +57,7 @@ The workflow consists of six core commands that guide you through the complete d
 - `docs/active_tasks/{task_name}/task_summary.md`
 - `docs/active_tasks/{task_name}/initial_plan.md`
 
-### 📋 `/create_tasks` - Parallel Task Generation
+### 📋 `/create_subtasks` - Parallel Task Generation
 **Purpose**: Generate detailed, step-by-step task lists with parallel sub-agent execution strategies.
 
 **What it does**:
@@ -144,7 +144,7 @@ docs/
 commands/
 ├── new_task.md
 ├── resume_task.md
-├── create_tasks.md
+├── create_subtasks.md
 ├── session_handoff.md
 ├── code_review.md
 └── finish_task.md
@@ -159,7 +159,7 @@ Create a `commands/` directory in your Claude Code `.claude` directory and copy/
 - `new_task.md` - Task creation and planning
 - `resume_task.md` - Session continuation
 - `session_handoff.md` - Session logging
-- `create_tasks.md` - Parallel task generation with sub-agent strategies
+- `create_subtasks.md` - Parallel task generation with sub-agent strategies
 - `code_review.md` - Multi-stage code reviews
 - `finish_task.md` - Task finalization
 
