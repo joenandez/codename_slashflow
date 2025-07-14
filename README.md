@@ -18,11 +18,9 @@ The workflow and commands are simple
 
 4. `resume_task` - find active_tasks, read all documentation and session_log, and continue where you left off
 
-5. `create_subtasks` - generate detailed task lists with parallel sub-agent execution strategies
+5. `code_review` - 3 stages of code_review conducted by an independent sub-agent to catch issues/gaps
 
-6. `code_review` - 3 stages of code_review conducted by an independent sub-agent to catch issues/gaps
-
-7. `finish_task` - update session_log, dispatch independent agent to fully document the feature and PR description.
+6. `finish_task` - update session_log, dispatch independent agent to fully document the feature and PR description.
 
 Its perfect for people new to Agentic Coding and Context Engineering who want to be more productive but aren't sure where to start.
 
@@ -159,7 +157,7 @@ Create a `commands/` directory in your Claude Code `.claude` directory and copy/
 - `new_task.md` - Task creation and planning
 - `resume_task.md` - Session continuation
 - `session_handoff.md` - Session logging
-- `create_subtasks.md` - Parallel task generation with sub-agent strategies
+- `create_subtasks.md` - Parallel agent subtask generation
 - `code_review.md` - Multi-stage code reviews
 - `finish_task.md` - Task finalization
 
