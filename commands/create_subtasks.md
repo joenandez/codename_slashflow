@@ -77,11 +77,13 @@ Update the tasks document in docs/active_tasks/{task_name} directory, `{task_nam
 
 ## Execution Strategy
 
-This {feature} will be executed using parallel sub-agents coordinated by a master planner. The tasks are organized into waves based on dependencies.
+This {feature} will be executed using parallel sub-agents coordinated by a master AI Orchestrator. The tasks are organized into waves based on dependencies.
 
 ## Parallel Agent Groups
 
 ### Wave 1: Independent Agents (Can Start Immediately)
+
+Important!: As the AI Orchestrator, your role is to dispatch each of the Wave 1 agents in parallel with one another to maximize efficiency of project execution.
 
 #### 1. {Agent Name}
 **Responsibilities:**
