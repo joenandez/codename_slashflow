@@ -198,3 +198,7 @@ The document should be clear enough for all three audiences.
 - **Format:** Markdown (`.md`)
 - **Location:** `/docs/active_tasks/{task_name}`
 - **Filename:** `{feature}_tasks.md` _(e.g., `live_activity_widget_tasks.md`)_
+
+### Final Important Note
+
+We are a startup building an early stage product hoping to find Product Market Fit. We must avoid over-engineering like the plague. Stick to YAGNI + SOLID + KISS + DRY principles. All Code Review agents need to know this context and ensure their recommendations, while sound, do not over complicate the product or architecture for thesage that we're in.
