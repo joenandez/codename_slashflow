@@ -10,15 +10,19 @@ Slash Flow is made for Claude Code. It leverages Claude's `/commands`, MCP, sub-
 
 The workflow and commands are simple
 
-1. `new_task` - start a new task, document the task, create an initial plan
+1. `new_task` - start a new task, document the task, create an initial well researched implementation plan
 
-2. `session_handoff` - document progress/status to start a new thread with fresh context
+2. `create_tasks` - creates a task list with detailed sub-tasks based on your implementation plan, including a sub-agent parralelization strategy
 
-3. `resume_task` - find active_tasks, read all documentation and session_log, and continue where you left off
+3. `session_handoff` - document progress/status to start a new thread with fresh context
 
-4. `code_review` - 3 stages of code_review conducted by an independent sub-agent to catch issues/gaps
+4. `resume_task` - find active_tasks, read all documentation and session_log, and continue where you left off
 
-5. `finish_task` - update session_log, dispatch independent agent to fully document the feature and PR description.
+5. `create_tasks` - generate detailed task lists with parallel sub-agent execution strategies
+
+6. `code_review` - 3 stages of code_review conducted by an independent sub-agent to catch issues/gaps
+
+7. `finish_task` - update session_log, dispatch independent agent to fully document the feature and PR description.
 
 Its perfect for people new to Agentic Coding and Context Engineering who want to be more productive but aren't sure where to start.
 
@@ -38,7 +42,7 @@ The primary benefit -- a simple and straight-forward way to maintain context/con
 
 ## Workflow Commands
 
-The workflow consists of five core commands that guide you through the complete development lifecycle:
+The workflow consists of six core commands that guide you through the complete development lifecycle:
 
 ### 🚀 `/new_task` - Task Creation
 **Purpose**: Initialize new development tasks with proper context and planning.
@@ -52,6 +56,21 @@ The workflow consists of five core commands that guide you through the complete 
 **Output**:
 - `docs/active_tasks/{task_name}/task_summary.md`
 - `docs/active_tasks/{task_name}/initial_plan.md`
+
+### 📋 `/create_tasks` - Parallel Task Generation
+**Purpose**: Generate detailed, step-by-step task lists with parallel sub-agent execution strategies.
+
+**What it does**:
+- Analyzes task specifications and requirements
+- Creates 5-8 high-level parent tasks covering full implementation scope
+- Breaks down parent tasks into actionable sub-tasks
+- Identifies dependencies and opportunities for parallel execution
+- Creates sub-agent strategies with execution waves
+- Generates detailed sub-agent specifications with context and deliverables
+
+**Output**: `docs/active_tasks/{task_name}/{task_name}_tasks.md`
+
+**Use when**: Breaking down complex features into manageable, parallelizable work units.
 
 ### 🔄 `/resume_task` - Session Resume
 **Purpose**: Continue work on existing tasks with full context restoration.
@@ -90,6 +109,8 @@ The workflow consists of five core commands that guide you through the complete 
 - Creates comprehensive review reports
 - Provides actionable improvement recommendations
 
+**Output**: `docs/active_tasks/{task_name}/code_complete_code_review.md`
+
 ### ✅ `/finish_task` - Task Finalization
 **Purpose**: Complete tasks with comprehensive documentation and cleanup.
 
@@ -123,13 +144,10 @@ docs/
 commands/
 ├── new_task.md
 ├── resume_task.md
+├── create_tasks.md
 ├── session_handoff.md
 ├── code_review.md
 └── finish_task.md
-
-yolo-mode/
-├── settings.json
-└── yolo_mode_safety_hook.py
 ```
 
 When resuming tasks, your agent will look in active_tasks and confirm which task to resume (if you have multiple).
@@ -141,6 +159,7 @@ Create a `commands/` directory in your Claude Code `.claude` directory and copy/
 - `new_task.md` - Task creation and planning
 - `resume_task.md` - Session continuation
 - `session_handoff.md` - Session logging
+- `create_tasks.md` - Parallel task generation with sub-agent strategies
 - `code_review.md` - Multi-stage code reviews
 - `finish_task.md` - Task finalization
 
@@ -249,48 +268,6 @@ Here's the complete `mcp.json` file (included in this repository) that includes 
   }
 }
 ```
-
-## Bonus - 🚨 Yolo Mode - Enhanced Permissions with Safety (Claude Hooks)
-
-Run Claude Code in `--dangerously-skip-permissions` mode with a PreToolUse safety hook that prevents dangerous file deletion commands.
-
-Learn about Claude Code hooks here -> https://docs.anthropic.com/en/docs/claude-code/hooks
-
-> ⚠️ **Use with caution**: While the safety hook when properly configured prevents common destructive commands, `--dangerously-skip-permissions` mode should still be used carefully and only in sandboxed development environments.
-
-**What it enables:**
-- Claude can run terminal commands without permission prompts
-- Faster development workflow with fewer interruptions
-- Safety net prevents accidental file system damage
-
-**Safety Hook:**
-The included `yolo_mode_safety_hook.py` script blocks dangerous commands (`rm`, `sudo`) before they execute, preventing accidental file deletion and privilege escalation.
-
-**Setup:**
-
-1. **Copy the safety files** from the `yolo-mode/` directory to your global `.claude` directory:
-   - `.claude/settings.json` - Claude Code configuration with PreToolUse hook
-   - `.claude/yolo_mode_safety_hook.py` - Python script that blocks dangerous commands (rm, sudo)
-
-2. **Run Claude Code in Yolo Mode:**
-   ```bash
-   claude-code --dangerously-skip-permissions
-   ```
-
-3. **What happens:**
-   - Claude runs terminal commands automatically
-   - Before any Bash command executes, the safety hook checks it
-   - Dangerous commands (`rm`, `sudo`) are blocked
-   - All other commands proceed normally
-
-4. **Important - Test First! (highly recommend to ensure proper setup):**
-    - Exit Claude Code and start a new session w/`--dangerously-skip-permissions`
-    - Have Claude Create and attempt to delete a test file
-    - verify that rm commands are blocked
-
-**Files included:**
-- `yolo-mode/settings.json`: Configures the PreToolUse hook
-- `yolo-mode/yolo_mode_safety_hook.py`: Python script that prevents dangerous commands (rm, sudo)
 
 ## Good For:
 
