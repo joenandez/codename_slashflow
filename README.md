@@ -284,6 +284,26 @@ Here's the complete `mcp.json` file (included in this repository) that includes 
 - **Build trust gradually**: Use code reviews to understand what AI agents do well vs. where you need oversight
 - **Leverage AI memory**: Session logs mean you never lose context - even across weeks or months
 
+## Troubleshooting
+
+### Agent Not Following Command Instructions
+
+**Problem**: The AI agent doesn't follow the specific workflow command instructions or seems to ignore the command prompt.
+
+**Solution**: Simply nudge the agent by explicitly naming the command you want it to follow.
+
+**Examples**:
+- "Please follow the `/new_task` command to create a new task"
+- "Use the `/resume_task` workflow to continue where we left off"
+- "Run the `/code_review` command to review the current code"
+- "Follow the `/session_handoff` process to document this session"
+
+**Why this works**: Explicitly naming the command helps the agent focus on the specific workflow instructions rather than generic responses.
+
+### Docs not being created where I like
+
+Your project structure may have a specific approach to documentation. Now that you have the commands, you are welcome to adjust them! Just search for docs/active_task and replace all with the path to your docs directory.
+
 ## Contributing
 
 This workflow is designed to be:
