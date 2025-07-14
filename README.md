@@ -1,4 +1,6 @@
-# /flow: simple, repeatable, agentic coding workflow
+![/flow](./flow.png)
+
+# /flow: a simple agentic coding workflow
 
 Many Agentic Coding context management solutions like Cline's Memory Bank are impressively robust, but can be hard to understand if new to Agentic coding, include a large number of workflows to understand, and at times try to be overly magical.
 
@@ -177,13 +179,13 @@ To fully utilize this workflow, you'll want to set up the recommended MCP server
 
 ### Prerequisites
 
+**Claude Code:**
+- [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
+- Install globally: `npm install -g @anthropic-ai/claude-code`
+
 **For Node.js-based servers:**
 - Node.js (v18.0.0 or higher)
 - npm package manager
-
-**For Python-based servers:**
-- Python 3.10 or higher
-- pip package manager
 
 ### Sequential Thinking MCP Server
 
