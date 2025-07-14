@@ -1,4 +1,4 @@
-# /flow: Simple Context Engineering
+# /flow: simple, repeatable, agentic coding workflow
 
 Many Agentic Coding context management solutions like Cline's Memory Bank are impressively robust, but can be hard to understand if new to Agentic coding, include a large number of workflows to understand, and at times try to be overly magical.
 
