@@ -72,6 +72,10 @@ Update the tasks document in docs/active_tasks/{task_name} directory, `{task_nam
 
 ### Expected Output Format
 
+- **Format:** Markdown (`.md`)
+- **Location:** `/docs/active_tasks/{task_name}`
+- **Filename:** `{feature}_tasks.md` _(e.g., `live_activity_widget_tasks.md`)_
+
 ```markdown
 # {Feature} Tasks: {Brief Description}
 
@@ -174,7 +178,7 @@ When creating sub-agents, ensure each specification includes:
 
 ### Wave Organization Principles
 
-1. **Wave 1** - Truly independent tasks (documentation, file copies, new file creation)
+1. **Wave 1** - Truly independent tasks (documentation, file copies, new file creation). You *must* dispatch these agents in parallel all at the same time.
 2. **Wave 2** - Tasks dependent on initial setup or configuration
 3. **Wave 3** - Complex integrations requiring multiple prerequisites
 4. **Wave N-1** - Final implementation and polish
@@ -192,12 +196,6 @@ The final task list will be consumed by:
 - **Human Developers** - For manual tasks or oversight
 
 The document should be clear enough for all three audiences.
-
-### Final Output
-
-- **Format:** Markdown (`.md`)
-- **Location:** `/docs/active_tasks/{task_name}`
-- **Filename:** `{feature}_tasks.md` _(e.g., `live_activity_widget_tasks.md`)_
 
 ### Final Important Note
 
